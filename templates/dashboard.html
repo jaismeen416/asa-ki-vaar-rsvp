@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSVP Dashboard</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f3eb;
+      color: #3a2f25;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 42px;
+      color: #3a2f25;
+    }
+
+    .sub {
+      color: #6f5c4a;
+      margin-bottom: 28px;
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #d9cdbf;
+      padding: 22px;
+      border-radius: 14px;
+    }
+
+    .card .label {
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #6f5c4a;
+      margin-bottom: 10px;
+      letter-spacing: 0.08em;
+    }
+
+    .card .value {
+      font-size: 40px;
+      font-weight: bold;
+      color: #3a2f25;
+    }
+
+    .table-wrap {
+      background: white;
+      border: 1px solid #d9cdbf;
+      border-radius: 14px;
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 14px 10px;
+      border-bottom: 1px solid #eee2d3;
+      font-size: 15px;
+    }
+
+    th {
+      color: #6f5c4a;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 13px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .yes { background: #e8f3e6; color: #2f6b37; }
+    .no { background: #f9e2df; color: #b04940; }
+    .maybe { background: #f8f1d9; color: #8a6b10; }
+
+    .secret {
+      margin-top: 24px;
+      text-align: center;
+      color: #6f5c4a;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 14px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>RSVP Dashboard</h1>
+    <div class="sub">Asa Ki Vaar Keertan Program</div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="label">Total RSVPs</div>
+        <div class="value">{{ total_rsvps }}</div>
+      </div>
+      <div class="card">
+        <div class="label">Attending</div>
+        <div class="value">{{ attending }}</div>
+      </div>
+      <div class="card">
+        <div class="label">Not Attending</div>
+        <div class="value">{{ not_attending }}</div>
+      </div>
+      <div class="card">
+        <div class="label">Total Guests</div>
+        <div class="value">{{ total_guests }}</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Guests</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Submitted</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in rsvps %}
+          <tr>
+            <td>{{ r.name }}</td>
+            <td>
+              {% if r.attendance == "Yes" %}
+                <span class="status yes">Attending</span>
+              {% elif r.attendance == "No" %}
+                <span class="status no">Not Attending</span>
+              {% else %}
+                <span class="status maybe">Maybe</span>
+              {% endif %}
+            </td>
+            <td>{{ r.guests }}</td>
+            <td>{{ r.phone if r.phone else "-" }}</td>
+            <td>{{ r.message if r.message else "-" }}</td>
+            <td>{{ r.timestamp }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="secret">
+      Private dashboard link uses your secret path.
+    </div>
+  </div>
+</body>
+</html>
