@@ -1,206 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shukrana Kirtan RSVP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shukrana Kirtan RSVP</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    html {
-      font-size: 16px;
-    }
+html { font-size: 16px; }
 
-    body {
-      margin: 0;
-      padding: 14px;
-      background: #f8f4ec;
-      font-family: Georgia, serif;
-      color: #2f2a26;
-      line-height: 1.6;
-    }
+body {
+  margin: 0;
+  padding: 12px;
+  background: #f8f4ec;
+  font-family: Georgia, serif;
+  color: #2f2a26;
+  line-height: 1.6;
+}
 
-    .page {
-      max-width: 900px;
-      margin: 0 auto;
-      background: #fcfaf5;
-      border: 4px solid #c8a23b;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
-    }
+/* MAIN CONTAINER */
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fcfaf5;
+  border: 4px solid #c8a23b;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+}
 
-    .poster {
-      width: 100%;
-      display: block;
-      border-bottom: 3px solid #d5b15a;
-    }
+/* IMAGE */
+.poster-wrap { padding: 14px; }
 
-    .content {
-      padding: 18px;
-      text-align: center;
-    }
+.poster {
+  width: 100%;
+  border-radius: 14px;
+  border: 3px solid #d5b15a;
+}
 
-    .content h3 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #25497a;
-    }
+/* TEXT SECTION */
+.content {
+  padding: 10px 18px 20px;
+  text-align: center;
+}
 
-    .content p {
-      font-size: 1.05rem;
-      margin: 8px 0;
-      color: #5b4735;
-    }
+.info h3 {
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+  color: #25497a;
+}
 
-    .small-text {
-      font-size: 0.9rem !important;
-      color: #6e5a44;
-    }
+.info p {
+  font-size: 1rem;
+  margin: 6px 0;
+  color: #5b4735;
+}
 
-    .invite-by {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #25497a;
-      margin-top: 10px;
-    }
+.small-text {
+  font-size: 0.9rem !important;
+  color: #6e5a44;
+}
 
-    .address-link {
-      display: block;
-      margin-top: 12px;
-      font-size: 1.05rem;
-      color: #25497a;
-      text-decoration: underline;
-      font-weight: 600;
-    }
+.invite-by {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #25497a;
+  margin-top: 6px;
+}
 
-    .rsvp-card {
-      margin: 20px;
-      padding: 20px;
-      background: white;
-      border-radius: 16px;
-      border: 3px solid #c8a23b;
-      text-align: left;
-    }
+.address-link {
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #25497a;
+  text-decoration: underline;
+}
 
-    .rsvp-card h4 {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-      color: #25497a;
-    }
+/* RSVP BOX */
+.rsvp-card {
+  margin: 20px auto;
+  padding: 20px 16px;
+  background: white;
+  border-radius: 18px;
+  border: 3px solid #c8a23b;
+  max-width: 520px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
 
-    .field-label {
-      font-weight: bold;
-      font-size: 0.95rem;
-      margin-top: 12px;
-      display: block;
-      color: #25497a;
-    }
+.rsvp-card h4 {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  color: #25497a;
+}
 
-    input, select, textarea, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border-radius: 10px;
-      border: 2px solid #cbb07d;
-      font-size: 0.95rem;
-    }
+.sub {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #7a6249;
+  margin-bottom: 16px;
+}
 
-    textarea {
-      min-height: 80px;
-    }
+/* FORM */
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+  color: #25497a;
+}
 
-    .attendance-options {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1.5px solid #cbb07d;
+  font-size: 0.95rem;
+}
 
-    .attendance-options label {
-      flex: 1;
-      text-align: center;
-    }
+textarea { min-height: 70px; }
 
-    .attendance-options input {
-      display: none;
-    }
+/* RSVP BUTTON OPTIONS */
+.attendance-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
 
-    .attendance-options span {
-      display: block;
-      padding: 10px;
-      border-radius: 10px;
-      border: 2px solid #c8a23b;
-      font-weight: bold;
-    }
+.attendance-options input { display: none; }
 
-    .yes span {
-      background: #25497a;
-      color: white;
-    }
+.attendance-options span {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #c8a23b;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .no span {
-      background: #8a7252;
-      color: white;
-    }
+/* COLORS */
+.yes span { background: #25497a; color: white; }
+.no span { background: #8a7252; color: white; }
+.maybe span { background: #f3ead8; }
 
-    .maybe span {
-      background: #f3ead8;
-    }
+/* SUBMIT BUTTON */
+button {
+  margin-top: 14px;
+  width: 100%;
+  padding: 13px;
+  background: #25497a;
+  color: white;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
 
-    button {
-      margin-top: 14px;
-      background: #25497a;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 18px;
+  font-size: 0.9rem;
+  color: #7a6249;
+}
 
-    .footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.95rem;
-      color: #7a6249;
-    }
+.footer .phone {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #25497a;
+  margin-top: 6px;
+}
 
-    .footer .phone {
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: #25497a;
-      margin-top: 5px;
-    }
+/* 📱 MOBILE PERFECT */
+@media (max-width: 600px) {
+  body { padding: 8px; }
 
-    @media (max-width: 600px) {
-      .content h3 {
-        font-size: 1.6rem;
-      }
+  .info h3 { font-size: 1.5rem; }
 
-      .content p {
-        font-size: 1rem;
-      }
+  .info p { font-size: 0.95rem; }
 
-      .small-text {
-        font-size: 0.85rem !important;
-      }
+  .small-text { font-size: 0.85rem !important; }
 
-      .attendance-options {
-        flex-direction: column;
-      }
-    }
+  .attendance-options {
+    grid-template-columns: 1fr;
+  }
 
-  </style>
+  .rsvp-card {
+    margin: 14px 8px;
+    padding: 16px 12px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="page">
+<div class="page">
 
+  <div class="poster-wrap">
     <img class="poster" src="{{ url_for('static', filename='flyer.jpg') }}">
+  </div>
 
-    <div class="content">
+  <div class="content">
+    <div class="info">
       <h3>Shukrana Kirtan</h3>
 
       <p class="small-text">
@@ -212,68 +220,71 @@
       </p>
 
       <div class="invite-by small-text">
-        Invited by Onkar Singh &amp; Davinder Kaur
+        Invited by Onkar Singh & Davinder Kaur
       </div>
 
       <a class="address-link"
-        href="https://maps.app.goo.gl/gqkZMAVRvbzAtNWC7"
-        target="_blank">
-        12105 Harrison Steel Drive, Charlotte, NC
+         href="https://maps.app.goo.gl/gqkZMAVRvbzAtNWC7"
+         target="_blank">
+         12105 Harrison Steel Drive, Charlotte, NC
       </a>
     </div>
-
-    <div class="rsvp-card">
-      <h4>RSVP</h4>
-
-      <form action="/rsvp" method="POST">
-
-        <label class="field-label">Your Name *</label>
-        <input type="text" name="name" required>
-
-        <label class="field-label">Will you attend?</label>
-        <div class="attendance-options">
-          <label class="yes">
-            <input type="radio" name="attendance" value="Yes" required>
-            <span>Yes</span>
-          </label>
-
-          <label class="no">
-            <input type="radio" name="attendance" value="No">
-            <span>No</span>
-          </label>
-
-          <label class="maybe">
-            <input type="radio" name="attendance" value="Maybe">
-            <span>Maybe</span>
-          </label>
-        </div>
-
-        <label class="field-label">Guests</label>
-        <select name="guests">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4+</option>
-        </select>
-
-        <label class="field-label">Phone</label>
-        <input type="text" name="phone">
-
-        <label class="field-label">Message</label>
-        <textarea name="message"></textarea>
-
-        <button type="submit">Confirm RSVP</button>
-      </form>
-    </div>
-
-    <div class="footer">
-      Please RSVP as soon as possible<br>
-      Call/Text
-      <div class="phone">704-837-9747</div>
-      Made by Jaismeen Kaur
-    </div>
-
   </div>
+
+  <div class="rsvp-card">
+    <h4>RSVP</h4>
+    <div class="sub">Please let us know if you can join us</div>
+
+    <form action="/rsvp" method="POST">
+
+      <label class="field-label">Your Name *</label>
+      <input type="text" name="name" required>
+
+      <label class="field-label">Will you attend?</label>
+      <div class="attendance-options">
+        <label class="yes">
+          <input type="radio" name="attendance" value="Yes" required>
+          <span>Yes</span>
+        </label>
+
+        <label class="no">
+          <input type="radio" name="attendance" value="No">
+          <span>No</span>
+        </label>
+
+        <label class="maybe">
+          <input type="radio" name="attendance" value="Maybe">
+          <span>Maybe</span>
+        </label>
+      </div>
+
+      <label class="field-label">Guests</label>
+      <select name="guests">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4+</option>
+      </select>
+
+      <label class="field-label">Phone</label>
+      <input type="text" name="phone">
+
+      <label class="field-label">Message</label>
+      <textarea name="message"></textarea>
+
+      <button type="submit">Confirm RSVP</button>
+
+    </form>
+  </div>
+
+  <div class="footer">
+    Please RSVP as soon as possible<br>
+    Call/Text
+    <div class="phone">704-837-9747</div>
+    Made by Jaismeen Kaur
+  </div>
+
+</div>
 
 </body>
 </html>
