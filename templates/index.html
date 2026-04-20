@@ -37,6 +37,7 @@ body {
   width: 100%;
   border-radius: 14px;
   border: 3px solid #d5b15a;
+  display: block;
 }
 
 /* TEXT SECTION */
@@ -63,7 +64,7 @@ body {
 }
 
 .invite-by {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: #25497a;
   margin-top: 6px;
@@ -71,10 +72,17 @@ body {
 
 .address-link {
   display: block;
-  margin-top: 10px;
-  font-size: 1rem;
+  margin-top: 12px;
+  font-size: 1.2rem;
   color: #25497a;
   text-decoration: underline;
+  font-weight: 700;
+}
+
+.small-note {
+  font-size: 0.8rem;
+  color: #7a6249;
+  margin-top: 4px;
 }
 
 /* RSVP BOX */
@@ -118,9 +126,13 @@ input, select, textarea {
   border-radius: 10px;
   border: 1.5px solid #cbb07d;
   font-size: 0.95rem;
+  font-family: Arial, sans-serif;
 }
 
-textarea { min-height: 70px; }
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
 
 /* RSVP BUTTON OPTIONS */
 .attendance-options {
@@ -141,12 +153,13 @@ textarea { min-height: 70px; }
   font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
+  font-family: Arial, sans-serif;
 }
 
 /* COLORS */
 .yes span { background: #25497a; color: white; }
 .no span { background: #8a7252; color: white; }
-.maybe span { background: #f3ead8; }
+.maybe span { background: #f3ead8; color: #5b4735; }
 
 /* SUBMIT BUTTON */
 button {
@@ -160,6 +173,7 @@ button {
   font-weight: bold;
   border: none;
   cursor: pointer;
+  font-family: Arial, sans-serif;
 }
 
 /* FOOTER */
@@ -177,7 +191,7 @@ button {
   margin-top: 6px;
 }
 
-/* 📱 MOBILE PERFECT */
+/* MOBILE */
 @media (max-width: 600px) {
   body { padding: 8px; }
 
@@ -186,6 +200,8 @@ button {
   .info p { font-size: 0.95rem; }
 
   .small-text { font-size: 0.85rem !important; }
+
+  .address-link { font-size: 1.05rem; }
 
   .attendance-options {
     grid-template-columns: 1fr;
@@ -204,8 +220,9 @@ button {
 <div class="page">
 
   <div class="poster-wrap">
-    <img class="poster" src="{{ url_for('static', filename='flyer.jpg') }}">
+    <img class="poster" src="{{ url_for('static', filename='flyer.jpg') }}" alt="Shukrana Kirtan Flyer">
   </div>
+
   <div class="content">
     <div class="info">
       <h3>Shukrana Kirtan</h3>
@@ -218,15 +235,18 @@ button {
         <strong>Morning 7:30 AM – 9:30 AM, followed by Langar</strong>
       </p>
 
-      <div class="invite-by small-text">
-        Invited by Onkar Singh & Davinder Kaur
+      <div class="invite-by">
+        Invited by Onkar Singh &amp; Davinder Kaur
       </div>
 
       <a class="address-link"
          href="https://maps.app.goo.gl/gqkZMAVRvbzAtNWC7"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
          12105 Harrison Steel Drive, Charlotte, NC
       </a>
+
+      <div class="small-note">Click the address for directions</div>
     </div>
   </div>
 
